@@ -4,554 +4,409 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Paris Zárate Colín — Digital Sales & Growth</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
- 
     :root {
-      --navy:    #0f172a;
-      --blue:    #3b5bdb;
-      --blue-l:  #4c6ef5;
-      --green:   #2f9e44;
-      --gray-bg: #f1f3f5;
-      --gray-lt: #f8f9fa;
-      --text:    #1a1a2e;
-      --muted:   #868e96;
-      --border:  #dee2e6;
-      --white:   #ffffff;
-      --font:    'Plus Jakarta Sans', sans-serif;
+      --blue:    #1F4E79;
+      --blue-lt: #2E75B6;
+      --dark:    #1A1A1A;
+      --gray:    #555555;
+      --light:   #F4F7FA;
+      --white:   #FFFFFF;
+      --accent:  #E8F0F8;
     }
- 
-    body { font-family: var(--font); background: var(--gray-bg); color: var(--text); font-size: 15px; line-height: 1.6; }
- 
-    /* ── NAV ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Arial', sans-serif; color: var(--dark); background: var(--light); }
+
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(255,255,255,.97); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      height: 60px; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 56px;
+      position: fixed; top: 0; width: 100%; background: var(--blue);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 56px; z-index: 100;
     }
-    .logo { font-size: 20px; font-weight: 800; letter-spacing: -.02em; color: var(--navy); text-decoration: none; }
-    .logo .blue { color: var(--blue); }
-    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-    .nav-links a { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-li-icon a { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: var(--blue); border-radius: 6px; color: white; transition: background .2s; }
-    .nav-li-icon a:hover { background: var(--blue-l); }
-    .nav-cta { background: var(--blue) !important; color: #fff !important; padding: 7px 18px !important; border-radius: 8px !important; letter-spacing: .08em !important; transition: background .2s, transform .15s !important; }
-    .nav-cta:hover { background: var(--blue-l) !important; transform: translateY(-1px) !important; }
- 
-    /* ── HERO ── */
+    nav .logo { color: #fff; font-weight: 700; font-size: 1.1rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; }
+    nav ul a:hover { color: #fff; }
+
+    /* HERO */
     .hero {
-      background: linear-gradient(140deg, #0f172a 0%, #192244 60%, #111827 100%);
-      padding: 148px 56px 108px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lt) 100%);
+      color: #fff; padding: 6rem 2rem 4rem; text-align: center;
     }
-    .hero::after {
-      content: ''; position: absolute; top: -180px; right: -160px;
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(59,91,219,.2) 0%, transparent 68%);
-      pointer-events: none;
+    .hero h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
+    .hero .subtitle { font-size: 1rem; opacity: 0.85; margin-bottom: 1.5rem; }
+    .hero .tagline {
+      font-size: 0.95rem; opacity: 0.75; max-width: 620px;
+      margin: 0 auto 2rem; line-height: 1.6;
     }
-    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; animation: fadeUp .7s ease both; }
-    .hero-badge { display: inline-block; background: rgba(59,91,219,.22); border: 1px solid rgba(76,110,245,.38); color: #a5b4fc; font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; padding: 6px 14px; border-radius: 6px; margin-bottom: 24px; }
-    .hero h1 { font-size: clamp(40px, 5.5vw, 68px); font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 20px; }
-    .hero-sub { font-size: 18px; color: #94a3b8; max-width: 520px; line-height: 1.65; margin-bottom: 40px; font-weight: 400; }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
- 
-    .btn-primary { background: var(--blue); color: #fff; border: none; padding: 13px 28px; border-radius: 10px; font-family: var(--font); font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .2s, transform .15s; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-primary:hover { background: var(--blue-l); transform: translateY(-1px); }
-    .btn-secondary { background: rgba(255,255,255,.08); color: #e2e8f0; border: 1px solid rgba(255,255,255,.16); padding: 13px 28px; border-radius: 10px; font-family: var(--font); font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .2s; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-secondary:hover { background: rgba(255,255,255,.14); }
- 
-    /* ── METRICS ── */
-    .metrics-wrap { background: var(--gray-bg); }
-    .metrics-strip { max-width: 1080px; margin: 0 auto; padding: 0 56px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; transform: translateY(-52px); position: relative; z-index: 10; animation: fadeUp .7s .15s ease both; }
-    .metric-card { background: var(--white); border-radius: 16px; padding: 28px 32px; box-shadow: 0 4px 24px rgba(0,0,0,.08); border-bottom: 4px solid transparent; transition: transform .22s, box-shadow .22s; }
-    .metric-card:hover { transform: translateY(-4px); box-shadow: 0 10px 36px rgba(0,0,0,.13); }
-    .metric-card.c-green  { border-color: #37b24d; }
-    .metric-card.c-blue   { border-color: var(--blue-l); }
-    .metric-card.c-green2 { border-color: #37b24d; }
-    .metric-val { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 8px; letter-spacing: -.02em; }
-    .c-green  .metric-val { color: var(--green); }
-    .c-blue   .metric-val { color: var(--blue); }
-    .c-green2 .metric-val { color: var(--green); }
-    .metric-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
- 
-    /* ── MAIN ── */
-    .main { max-width: 1080px; margin: 0 auto; padding: 80px 56px 100px; }
-    section { margin-bottom: 80px; }
-    .section-title { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
-    .section-title::before { content: ''; width: 32px; height: 4px; background: var(--blue); border-radius: 2px; flex-shrink: 0; }
-    .section-title h2 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
- 
-    /* ── TIMELINE ── */
-    .timeline { display: flex; flex-direction: column; }
-    .tl-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 20px; padding-bottom: 52px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
-    .tl-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
-    .tl-dot.active { background: var(--blue); box-shadow: 0 0 0 4px rgba(59,91,219,.18); }
-    .tl-dot.past   { background: #ced4da; }
-    .tl-line { width: 2px; flex: 1; background: var(--border); margin-top: 6px; }
-    .tl-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 4px; }
-    .tl-title { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
-    .tl-period { font-size: 14px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-    .tl-org { font-size: 14px; font-weight: 600; color: var(--blue); margin-bottom: 14px; }
-    .tl-body { border-left: 3px solid var(--border); padding-left: 16px; }
-    .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .tl-bullets li { font-size: 14px; color: #495057; display: flex; gap: 10px; align-items: flex-start; line-height: 1.6; }
-    .check-icon { width: 18px; height: 18px; background: var(--blue); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-    .tl-text { font-size: 14px; color: #495057; font-style: italic; line-height: 1.65; }
-    .traj-box { background: var(--gray-lt); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; }
-    .traj-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-    .traj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .traj-item { background: var(--white); border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; padding: 10px 14px; font-size: 13px; color: var(--text); }
- 
-    /* ── SKILLS ── */
-    .skills-section { background: var(--navy); padding: 80px 56px; }
-    .skills-inner { max-width: 1080px; margin: 0 auto; }
-    .skills-section h2 { font-size: 30px; font-weight: 800; color: #fff; text-align: center; margin-bottom: 56px; letter-spacing: -.02em; }
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 60px; }
-    .skill-group-title { font-size: 15px; font-weight: 700; color: var(--blue-l); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-    .skill-group-title svg { width: 18px; height: 18px; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skill-tag { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: #e2e8f0; font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 8px; transition: background .2s, border-color .2s, transform .15s; cursor: pointer; user-select: none; }
-    .skill-tag:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.22); transform: translateY(-1px); }
-    .skill-tag.active { background: var(--blue); border-color: var(--blue); color: #fff; }
- 
-    /* ── FORMACIÓN + CERTS ── */
-    .form-certs-wrap { background: var(--gray-bg); padding: 80px 56px; }
-    .form-certs-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-    .fc-title { font-size: 24px; font-weight: 800; color: var(--text); margin-bottom: 28px; letter-spacing: -.02em; }
-    .edu-list { display: flex; flex-direction: column; gap: 24px; }
-    .edu-item { border-left: 3px solid var(--blue); padding-left: 16px; }
-    .edu-degree { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 4px; }
-    .edu-school { font-size: 13px; color: var(--muted); }
-    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .cert-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
-    .cert-star { width: 20px; height: 20px; flex-shrink: 0; }
- 
-    /* ── FOOTER ── */
-    footer { background: #080d1a; border-top: 1px solid rgba(255,255,255,.06); padding: 32px 56px; text-align: center; }
-    .footer-name { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #475569; margin-bottom: 8px; }
-    .footer-copy { font-size: 12px; color: #334155; }
- 
-    /* ── MODAL ── */
+    .btn {
+      display: inline-block; background: #fff; color: var(--blue);
+      padding: 0.65rem 1.6rem; border-radius: 4px; font-weight: 700;
+      text-decoration: none; font-size: 0.9rem; margin: 0.3rem;
+      transition: opacity .2s; cursor: pointer; border: none;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn.outline {
+      background: transparent; border: 2px solid rgba(255,255,255,0.7);
+      color: #fff;
+    }
+
+    /* METRICS */
+    .metrics {
+      background: var(--white); display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 0; border-bottom: 3px solid var(--accent);
+    }
+    .metric {
+      padding: 1.5rem 2.5rem; text-align: center; border-right: 1px solid var(--accent);
+    }
+    .metric:last-child { border-right: none; }
+    .metric .value { font-size: 2rem; font-weight: 700; color: var(--blue); }
+    .metric .label { font-size: 0.78rem; color: var(--gray); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; }
+
+    /* MAIN */
+    main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    /* SECTION */
+    section { margin-bottom: 3rem; }
+    .section-title {
+      font-size: 1rem; font-weight: 700; color: var(--blue);
+      text-transform: uppercase; letter-spacing: .08em;
+      border-bottom: 2px solid var(--blue); padding-bottom: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* JOB */
+    .job { margin-bottom: 1.8rem; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4px; }
+    .job-company { font-weight: 700; color: var(--blue); font-size: 1rem; }
+    .job-date { font-size: 0.82rem; color: var(--gray); font-style: italic; }
+    .job-title { font-weight: 700; font-size: 0.95rem; color: var(--dark); margin: 2px 0 8px; }
+    .job ul { padding-left: 1.2rem; }
+    .job li { font-size: 0.88rem; line-height: 1.65; margin-bottom: 6px; color: var(--dark); }
+
+    /* BADGE ROW */
+    .badge-group { margin-bottom: 1.2rem; }
+    .badge-group h4 { font-size: 0.88rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .badge {
+      background: var(--accent); color: var(--blue);
+      padding: 4px 10px; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .badge.red { background: #FDE8E8; color: #9B1C1C; }
+
+    /* HIGHLIGHT */
+    .highlight-box {
+      background: var(--accent); border-left: 4px solid var(--blue);
+      padding: 1rem 1.2rem; border-radius: 4px; margin-bottom: 1.5rem;
+    }
+    .highlight-box h4 { font-size: 0.9rem; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
+    .highlight-box p { font-size: 0.85rem; line-height: 1.6; color: var(--dark); }
+
+    /* EDU / CERT */
+    .edu-item, .cert-item { margin-bottom: 0.8rem; }
+    .edu-item strong, .cert-item strong { font-size: 0.9rem; color: var(--dark); }
+    .edu-item span, .cert-item span { font-size: 0.82rem; color: var(--gray); display: block; }
+
+    /* LANG */
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+    .lang-item { background: var(--white); border: 1px solid var(--accent); padding: 8px 12px; border-radius: 4px; }
+    .lang-item strong { font-size: 0.88rem; color: var(--dark); }
+    .lang-item span { font-size: 0.78rem; color: var(--gray); }
+
+    /* MODAL */
     .modal-overlay {
-      position: fixed; inset: 0;
-      background: rgba(10,15,30,.75);
-      backdrop-filter: blur(8px);
-      z-index: 999;
-      display: flex; align-items: center; justify-content: center;
-      padding: 24px;
-      opacity: 0; pointer-events: none;
-      transition: opacity .25s;
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 200;
+      align-items: center; justify-content: center;
     }
-    .modal-overlay.open { opacity: 1; pointer-events: all; }
- 
-    .modal-box {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 32px;
-      width: 100%; max-width: 460px;
-      position: relative;
-      transform: translateY(20px) scale(.97);
-      transition: transform .25s;
-      box-shadow: 0 32px 80px rgba(0,0,0,.3);
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 8px;
+      padding: 2rem; width: 90%; max-width: 420px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     }
-    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
- 
+    .modal h3 { color: var(--blue); font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .modal .modal-sub { font-size: 0.82rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .modal-section { margin-bottom: 1.2rem; }
+    .modal-section h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gray); margin-bottom: 0.5rem; }
+    .modal-btn {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.6rem 1rem; border-radius: 6px; text-decoration: none;
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 6px;
+      transition: opacity .15s;
+    }
+    .modal-btn:hover { opacity: 0.82; }
+    .modal-btn.icloud { background: #f0f0f0; color: #1A1A1A; }
+    .modal-btn.gmail  { background: #FDECEA; color: #B71C1C; }
+    .modal-btn.call   { background: #E8F5E9; color: #1B5E20; }
+    .modal-btn.whatsapp { background: #E8F5E9; color: #1B5E20; }
+    .modal-btn.linkedin { background: var(--accent); color: var(--blue); }
     .modal-close {
-      position: absolute; top: 14px; right: 14px;
-      background: #f1f3f5; border: none; border-radius: 8px;
-      width: 30px; height: 30px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: #868e96; transition: background .2s, color .2s;
+      display: block; text-align: center; margin-top: 1rem;
+      font-size: 0.82rem; color: var(--gray); cursor: pointer;
+      background: none; border: none; width: 100%;
     }
-    .modal-close:hover { background: #e9ecef; color: var(--text); }
- 
-    .modal-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-    .modal-avatar { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #3b5bdb, #6c8cff); color: white; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .modal-name { font-size: 16px; font-weight: 800; color: var(--text); line-height: 1.2; }
-    .modal-tagline { font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .modal-divider { height: 1px; background: #f1f3f5; margin-bottom: 20px; }
- 
-    .modal-section-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #adb5bd; margin-bottom: 8px; }
-    .modal-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
-    .modal-group.row { flex-direction: row; gap: 8px; }
-    .modal-group.row .mopt { flex: 1; }
-    .modal-group:last-child { margin-bottom: 0; }
- 
-    .mopt {
-      display: flex; align-items: center; gap: 12px;
-      padding: 11px 14px; border-radius: 12px;
-      border: 1.5px solid #e9ecef; background: #f8f9fa;
-      cursor: pointer; font-family: var(--font);
-      transition: border-color .18s, background .18s, transform .15s;
-      text-align: left; width: 100%;
-    }
-    .mopt:hover { background: #fff; transform: translateX(3px); }
-    .mopt-icloud:hover  { border-color: #555; }
-    .mopt-gmail:hover   { border-color: #ea4335; }
-    .mopt-default:hover { border-color: var(--blue); }
-    .mopt-call:hover    { border-color: #2f9e44; }
-    .mopt-wa:hover      { border-color: #25d366; }
-    .mopt-li:hover      { border-color: #0a66c2; }
- 
-    .mopt-icon { width: 34px; height: 34px; border-radius: 9px; background: white; border: 1px solid #e9ecef; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .mopt-icloud  .mopt-icon svg { color: #444; }
-    .mopt-gmail   .mopt-icon svg { color: #ea4335; }
-    .mopt-default .mopt-icon svg { color: var(--blue); }
-    .mopt-call    .mopt-icon svg { color: #2f9e44; }
-    .mopt-wa      .mopt-icon svg { color: #25d366; }
-    .mopt-li      .mopt-icon svg { color: #0a66c2; }
- 
-    .mopt-text { flex: 1; }
-    .mopt-name { display: block; font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.2; }
-    .mopt-desc { display: block; font-size: 11px; color: var(--muted); margin-top: 1px; }
-    .mopt-arrow { color: #ced4da; flex-shrink: 0; transition: color .18s, transform .18s; }
-    .mopt:hover .mopt-arrow { color: var(--muted); transform: translateX(2px); }
- 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
- 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 0 24px; }
-      .nav-links li:not(.nav-li-icon):not(:last-child) { display: none; }
-      .hero { padding: 110px 24px 80px; }
-      .metrics-strip { grid-template-columns: 1fr; padding: 0 24px; }
-      .main { padding: 48px 24px 80px; }
-      .tl-header { flex-direction: column; gap: 2px; }
-      .skills-section { padding: 60px 24px; }
-      .skills-grid { grid-template-columns: 1fr; gap: 32px; }
-      .form-certs-wrap { padding: 60px 24px; }
-      .form-certs-inner { grid-template-columns: 1fr; gap: 40px; }
-      .traj-grid { grid-template-columns: 1fr; }
-      footer { padding: 40px 24px; }
-      .modal-group.row { flex-direction: column; }
+    .modal-close:hover { color: var(--dark); }
+
+    /* FOOTER */
+    footer { background: var(--blue); color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.9); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.7rem; }
+      .metric { padding: 1rem 1.2rem; }
+      .metric .value { font-size: 1.5rem; }
+      nav ul { gap: 0.8rem; }
     }
   </style>
 </head>
 <body>
- 
-<!-- ── NAVBAR ── -->
+
+<!-- NAV -->
 <nav>
-  <a href="#" class="logo"><span class="blue">PZ</span>C.</a>
-  <ul class="nav-links">
+  <span class="logo">PZC.</span>
+  <ul>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#habilidades">Habilidades</a></li>
     <li><a href="#formacion">Formación</a></li>
-    <li class="nav-li-icon">
-      <a href="https://www.linkedin.com/in/pariszaratecolin/" target="_blank" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-      </a>
-    </li>
-    <li><a href="#" class="nav-cta" onclick="event.preventDefault(); openModal()">Contacto</a></li>
+    <li><a href="https://www.linkedin.com/in/pariszaratecolin/" target="_blank">LinkedIn</a></li>
+    <li><a href="#" onclick="openModal(); return false;">Contacto</a></li>
   </ul>
 </nav>
- 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">Digital Sales &amp; Growth Management</div>
-    <h1>Paris Zárate Colín</h1>
-    <p class="hero-sub">Líder estratégico especializado en gestión de proyectos de alto impacto, optimización y crecimiento comercial.</p>
-    <div class="hero-btns">
-      <button class="btn-primary" onclick="openModal()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Contactar
-      </button>
-      <a href="#experiencia" class="btn-secondary">
-        Ver Trayectoria
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
- 
-<!-- ── METRICS ── -->
-<div class="metrics-wrap">
-  <div class="metrics-strip">
-    <div class="metric-card c-green">
-      <div class="metric-val">+14%</div>
-      <div class="metric-label">Conversión Digital</div>
-    </div>
-    <div class="metric-card c-blue">
-      <div class="metric-val">$1.1M USD</div>
-      <div class="metric-label">Presupuestos Administrados</div>
-    </div>
-    <div class="metric-card c-green2">
-      <div class="metric-val">100%</div>
-      <div class="metric-label">Cumplimiento Comercial</div>
-    </div>
-  </div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Paris Zárate Colín</h1>
+  <p class="subtitle">AVP Digital Sales &amp; Growth Manager — Banca Digital / B2C</p>
+  <p class="tagline">
+    Líder en estrategia de ventas digitales, transformación digital y gestión de riesgos con +15 años de experiencia en banca, cumplimiento regulatorio internacional y fortalecimiento institucional.
+  </p>
+  <button class="btn" onclick="openModal()">Contactar</button>
+  <a href="#experiencia" class="btn outline">Ver Trayectoria</a>
 </div>
- 
-<!-- ── MAIN ── -->
-<div class="main">
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="metric"><div class="value">+15</div><div class="label">Años de experiencia</div></div>
+  <div class="metric"><div class="value">+14%</div><div class="label">Conversión Digital</div></div>
+  <div class="metric"><div class="value">$1.1M USD</div><div class="label">Portafolios Administrados</div></div>
+  <div class="metric"><div class="value">100%</div><div class="label">Cumplimiento Comercial</div></div>
+  <div class="metric"><div class="value">100</div><div class="label">Organizaciones Fortalecidas</div></div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- COMPLIANCE HIGHLIGHT -->
+  <div class="highlight-box" style="margin-top:2rem;">
+    <h4>🔒 Experiencia en AML, Compliance y Gestión de Riesgos</h4>
+    <p>Trayectoria comprobada en cumplimiento regulatorio tanto en banca digital (campañas de Seguros y Crédito Hipotecario bajo normativa CNBV / Citigroup) como en portafolios de cooperación internacional bajo estándares FATF/GAFI, OFAC, DUNS y SAM. Gestión de riesgos programáticos, normativos y de antilavado de dinero en más de 311 proyectos y campañas activas.</p>
+  </div>
+
+  <!-- EXPERIENCIA -->
   <section id="experiencia">
-    <div class="section-title"><h2>Experiencia Profesional</h2></div>
-    <div class="timeline">
- 
-      <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot active"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          <div class="tl-header">
-            <div class="tl-title">AVP Digital Sales &amp; Growth Sales Manager</div>
-            <div class="tl-period">Sept 2022 – Presente</div>
-          </div>
-          <div class="tl-org">Banamex</div>
-          <div class="tl-body">
-            <ul class="tl-bullets">
-              <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Optimización E2E del funnel de ventas en canales Mobile y Bancanet, logrando un <strong>incremento del 14% anual</strong> en conversión de seguros (2024).</span></li>
-              <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Diseño de innovaciones digitales que mejoraron la eficiencia operativa y experiencia de usuario.</span></li>
-              <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Liderazgo de equipos transversales (Riesgo, Cumplimiento, IT) para ejecución de campañas al 100%.</span></li>
-            </ul>
-          </div>
-        </div>
+    <h2 class="section-title">Experiencia Profesional</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Banamex</span>
+        <span class="job-date">Sept 2022 – Actualidad · Ciudad de México</span>
       </div>
- 
-      <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot past"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          <div class="tl-header">
-            <div class="tl-title">Gerente de Programas de Desarrollo</div>
-            <div class="tl-period">May 2022 – Sep 2022</div>
-          </div>
-          <div class="tl-org">Fundación Moisés Itzkowich</div>
-          <div class="tl-body"><p class="tl-text">Incremento de la capacidad instalada institucional en un 30% trimestral mediante diagnósticos, consultoría y uso de metodologías ágiles.</p></div>
-        </div>
-      </div>
- 
-      <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot past"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          <div class="tl-header">
-            <div class="tl-title">Gerente de Programas y Proyectos Especiales</div>
-            <div class="tl-period">Ago 2021 – May 2022</div>
-          </div>
-          <div class="tl-org">Organización ORT de México</div>
-          <div class="tl-body"><p class="tl-text">Gestión de portafolio de $1.1 millones de USD y cumplimiento normativo internacional (GAFI).</p></div>
-        </div>
-      </div>
- 
-      <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot past"></div></div>
-        <div class="tl-content">
-          <div class="traj-box">
-            <div class="traj-label">Trayectoria Consolidada (2008 – 2020)</div>
-            <div class="traj-grid">
-              <div class="traj-item"><strong>ONCA</strong> — Fundador &amp; Director Operaciones</div>
-              <div class="traj-item"><strong>Cauce Ciudadano</strong> — Promotor de Políticas Públicas</div>
-              <div class="traj-item"><strong>Fundación Empresarios</strong> — Coord. Innovación Senior</div>
-              <div class="traj-item"><strong>INEGI</strong> — Análisis Estadístico</div>
-            </div>
-          </div>
-        </div>
-      </div>
- 
-    </div>
-  </section>
-</div>
- 
-<!-- ── SKILLS ── -->
-<div class="skills-section" id="habilidades">
-  <div class="skills-inner">
-    <h2>Especialización Técnica y Transversal</h2>
-    <div class="skills-grid">
-      <div>
-        <div class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Ventas &amp; Growth</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Digital Sales Strategy</span><span class="skill-tag">Funnel Optimization</span><span class="skill-tag">Growth Hacking · OKR/KPI</span><span class="skill-tag">Customer Journey</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Project Management</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Metodologías Ágiles</span><span class="skill-tag">PMP</span><span class="skill-tag">Gestión de Riesgos (AML)</span><span class="skill-tag">Stakeholder Management</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>Análisis &amp; Tech</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Big Data Analysis</span><span class="skill-tag">Digital Analytics</span><span class="skill-tag">Data-Driven Decisions</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Liderazgo</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Cross-Functional Leadership</span><span class="skill-tag">Planeación Estratégica</span><span class="skill-tag">Desarrollo Organizacional</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- 
-<!-- ── FORMACIÓN + CERTIFICACIONES ── -->
-<div class="form-certs-wrap" id="formacion">
-  <div class="form-certs-inner">
-    <div>
-      <div class="fc-title">Formación Académica</div>
-      <div class="edu-list">
-        <div class="edu-item">
-          <div class="edu-degree">Lic. en Ciencias Políticas y Administración Pública</div>
-          <div class="edu-school">UNAM | 2005–2009</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-degree">Lic. en Gestión Cultural (Coop. Internacional)</div>
-          <div class="edu-school">Univ. de Guadalajara | 2016–2020</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="fc-title">Certificaciones</div>
-      <ul class="cert-list">
-        <li class="cert-item"><svg class="cert-star" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3b5bdb" opacity=".15"/><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#3b5bdb"/></svg>Certificado de Preparación PMP</li>
-        <li class="cert-item"><svg class="cert-star" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3b5bdb" opacity=".15"/><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#3b5bdb"/></svg>Agile Methodology</li>
-        <li class="cert-item"><svg class="cert-star" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3b5bdb" opacity=".15"/><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#3b5bdb"/></svg>Business Analytics</li>
-        <li class="cert-item"><svg class="cert-star" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3b5bdb" opacity=".15"/><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#3b5bdb"/></svg>Gestión de Proyectos: Resolución de Problemas</li>
-        <li class="cert-item"><svg class="cert-star" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3b5bdb" opacity=".15"/><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="#3b5bdb"/></svg>McKinsey Forward Program</li>
+      <div class="job-title">AVP — Gerente de Ventas Digitales y Crecimiento (Banca Digital / B2C)</div>
+      <ul>
+        <li>Optimización End to End del embudo de ventas en canales de banca digital — Mobile Banking, Bancanet y ATM — logrando un incremento del <strong>14% anual en conversión digital de seguros (2024)</strong> mediante estrategias Go to Market basadas en analítica de datos.</li>
+        <li><strong>Gestión de riesgos y cumplimiento regulatorio (AML/Compliance)</strong> en campañas de venta de Seguros y Crédito Hipotecario, garantizando alineación con políticas internas, normativa CNBV y estándares Citigroup en entornos de alta exigencia regulatoria.</li>
+        <li>Diseño e implementación de innovaciones digitales que mejoraron la eficiencia operativa, la experiencia de usuario y el volumen de ventas, alineadas a objetivos OKR/KPI.</li>
+        <li>Liderazgo de equipos transversales (UX, Configuraciones, Riesgo, Cumplimiento, TI) garantizando ejecución de campañas con <strong>100% de cumplimiento regulatorio</strong> en tiempo y forma.</li>
       </ul>
     </div>
-  </div>
-</div>
- 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-name">Paris Zárate Colín</div>
-  <div class="footer-copy">© 2026 CV Digital</div>
-</footer>
- 
-<!-- ══════════════════════════════════════
-     MODAL DE CONTACTO
-     Datos ensamblados en JS runtime —
-     no expuestos en el DOM estático
-════════════════════════════════════════ -->
-<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
-  <div class="modal-box">
- 
-    <button class="modal-close" onclick="closeModal()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
- 
-    <!-- Encabezado -->
-    <div class="modal-header">
-      <div class="modal-avatar">PZ</div>
-      <div>
-        <div class="modal-name">Paris Zárate Colín</div>
-        <div class="modal-tagline">Digital Sales &amp; Growth · CDMX</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Fundación Moisés Itzkowich</span>
+        <span class="job-date">Mar 2022 – Ago 2022 · Ciudad de México</span>
+      </div>
+      <div class="job-title">Gerente de Programas de Desarrollo</div>
+      <ul>
+        <li>Lideré procesos de gestión del cambio en 35 organizaciones, incrementando su capacidad institucional en <strong>30% trimestral</strong> mediante diagnósticos, consultoría estratégica y Metodologías Ágiles (Scrum).</li>
+        <li>Implementé <strong>controles donante-beneficiario y marcos de cumplimiento normativo</strong>, reduciendo riesgos programáticos en entornos regulados.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Organización ORT de México</span>
+        <span class="job-date">Jun 2018 – Mar 2022 · Ciudad de México</span>
+      </div>
+      <div class="job-title">Gerente de Subvenciones y Administrador de Oficina en México</div>
+      <ul>
+        <li>Administré portafolio de <strong>$1.1M USD</strong> en subvenciones garantizando cumplimiento técnico, financiero y regulatorio (AML/Compliance) en 311 proyectos.</li>
+        <li><strong>Diseñé e implementé controles de cumplimiento regulatorio internacional</strong> bajo estándares FATF/GAFI, OFAC, DUNS y SAM — incluyendo debida diligencia, gestión de riesgos y prevención de lavado de dinero.</li>
+        <li>Fortalecí capacidades institucionales de <strong>65 organizaciones subvencionadas</strong>, mejorando su capacidad instalada institucional, de su gobierno interno, de su personal y de sus redes de colaboración en el ecosistema de ONG internacionales.</li>
+        <li>Implementé sistemas de supervisión donante-beneficiario reduciendo riesgos programáticos, normativos y de cumplimiento regulatorio.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-title" style="margin-top:0.5rem;">Trayectoria Previa (2011 – 2018)</div>
+      <ul>
+        <li><strong>ONCA</strong> — Fundador &amp; Director (2014-2018): Creación y dirección de organización civil, gestión de alianzas estratégicas y fortalecimiento institucional.</li>
+        <li><strong>Cauce Ciudadano</strong> — Promotor de Políticas Públicas (2013-2014): Incidencia en políticas públicas y vinculación con actores gubernamentales.</li>
+        <li><strong>Fundación Empresarios por la Educación Básica</strong> — Coordinador de Innovación (2011-2013): Diseño e implementación de proyectos educativos de impacto social.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <h2 class="section-title">Habilidades</h2>
+
+    <div class="badge-group">
+      <h4>Ventas Digitales y Crecimiento Comercial</h4>
+      <div class="badges">
+        <span class="badge">Estrategia de Ventas Digitales</span>
+        <span class="badge">Transformación Digital</span>
+        <span class="badge">Funnel Optimization</span>
+        <span class="badge">Go to Market</span>
+        <span class="badge">Growth Hacking</span>
+        <span class="badge">OKR / KPI</span>
+        <span class="badge">Customer Journey</span>
+        <span class="badge">Mobile Banking</span>
+        <span class="badge">ATM</span>
+        <span class="badge">Bancanet</span>
       </div>
     </div>
-    <div class="modal-divider"></div>
- 
-    <!-- Correo -->
-    <p class="modal-section-label">Correo electrónico</p>
-    <div class="modal-group">
-      <button class="mopt mopt-icloud" id="btn-icloud">
-        <div class="mopt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/></svg></div>
-        <div class="mopt-text">
-          <span class="mopt-name">iCloud Mail</span>
-          <span class="mopt-desc">Abrir en Apple Mail / iCloud</span>
-        </div>
-        <svg class="mopt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
- 
-      <button class="mopt mopt-gmail" id="btn-gmail">
-        <div class="mopt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <div class="mopt-text">
-          <span class="mopt-name">Gmail</span>
-          <span class="mopt-desc">Abrir en Gmail (navegador)</span>
-        </div>
-        <svg class="mopt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
- 
-      <button class="mopt mopt-default" id="btn-default">
-        <div class="mopt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round"/></svg></div>
-        <div class="mopt-text">
-          <span class="mopt-name">App predeterminada</span>
-          <span class="mopt-desc">Usar el cliente de correo del dispositivo</span>
-        </div>
-        <svg class="mopt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
+
+    <div class="badge-group">
+      <h4>Gestión de Proyectos y Cumplimiento Regulatorio</h4>
+      <div class="badges">
+        <span class="badge red">AML — Antilavado de Dinero</span>
+        <span class="badge red">Compliance Regulatorio</span>
+        <span class="badge red">FATF / GAFI</span>
+        <span class="badge red">OFAC</span>
+        <span class="badge red">DUNS / SAM</span>
+        <span class="badge">Metodologías Ágiles — Scrum</span>
+        <span class="badge">PMP — PMI</span>
+        <span class="badge">Gestión de Riesgos</span>
+        <span class="badge">Stakeholder Management</span>
+      </div>
     </div>
- 
-    <!-- Teléfono -->
-    <p class="modal-section-label">Teléfono</p>
-    <div class="modal-group row">
-      <button class="mopt mopt-call" id="btn-call">
-        <div class="mopt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16z"/></svg></div>
-        <div class="mopt-text">
-          <span class="mopt-name">Llamar</span>
-          <span class="mopt-desc">Llamada directa</span>
-        </div>
-      </button>
-      <button class="mopt mopt-wa" id="btn-wa">
-        <div class="mopt-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="color:#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-        <div class="mopt-text">
-          <span class="mopt-name">WhatsApp</span>
-          <span class="mopt-desc">Enviar mensaje</span>
-        </div>
-      </button>
+
+    <div class="badge-group">
+      <h4>Análisis y Tecnología</h4>
+      <div class="badges">
+        <span class="badge">Business Analytics</span>
+        <span class="badge">Digital Analytics</span>
+        <span class="badge">Data-Driven Decisions</span>
+        <span class="badge">Excel Avanzado</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">Adobe Analytics</span>
+        <span class="badge">Adobe Target</span>
+        <span class="badge">Glassbox</span>
+      </div>
     </div>
- 
-    <!-- LinkedIn -->
-    <p class="modal-section-label">Red profesional</p>
-    <div class="modal-group">
-      <button class="mopt mopt-li" id="btn-li">
-        <div class="mopt-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="color:#0a66c2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
-        <div class="mopt-text">
-          <span class="mopt-name">LinkedIn</span>
-          <span class="mopt-desc">Ver perfil profesional completo</span>
-        </div>
-        <svg class="mopt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
+
+    <div class="badge-group">
+      <h4>Liderazgo</h4>
+      <div class="badges">
+        <span class="badge">Cross-Functional Leadership</span>
+        <span class="badge">Planeación Estratégica</span>
+        <span class="badge">Desarrollo Organizacional</span>
+      </div>
     </div>
- 
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section id="formacion">
+    <h2 class="section-title">Formación Académica</h2>
+    <div class="edu-item">
+      <strong>Licenciatura en Ciencias Políticas y Administración Pública</strong>
+      <span>UNAM · 2005–2009 · Especialización en Finanzas Públicas</span>
+    </div>
+  </section>
+
+  <!-- CERTIFICACIONES -->
+  <section>
+    <h2 class="section-title">Certificaciones</h2>
+    <div class="cert-item"><strong>McKinsey Forward</strong><span>McKinsey &amp; Company</span></div>
+    <div class="cert-item"><strong>Metodología Ágil — Scrum</strong></div>
+    <div class="cert-item"><strong>Analítica de Negocios (Business Analytics)</strong></div>
+    <div class="cert-item"><strong>Certificado de Preparación PMP — PMI</strong></div>
+    <div class="cert-item"><strong>Gestión de Proyectos: Resolución de Problemas</strong></div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section>
+    <h2 class="section-title">Idiomas</h2>
+    <div class="lang-grid">
+      <div class="lang-item"><strong>Inglés</strong><span>C1 — Avanzado</span></div>
+      <div class="lang-item"><strong>Italiano</strong><span>B2 — Intermedio Alto</span></div>
+      <div class="lang-item"><strong>Francés</strong><span>B1 — Intermedio</span></div>
+      <div class="lang-item"><strong>Portugués</strong><span>B1 — Intermedio</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Paris Zárate Colín · <a href="https://www.linkedin.com/in/pariszaratecolin/" target="_blank">LinkedIn</a> · Benito Juárez, Ciudad de México</p>
+</footer>
+
+<!-- MODAL CONTACTO -->
+<div class="modal-overlay" id="contactModal" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <h3>Paris Zárate Colín</h3>
+    <p class="modal-sub">Digital Sales &amp; Growth · CDMX</p>
+
+    <div class="modal-section">
+      <h4>Correo electrónico</h4>
+      <a class="modal-btn icloud" href="mailto:paris.zarate@icloud.com">
+        ✉️ iCloud Mail — paris.zarate@icloud.com
+      </a>
+      <a class="modal-btn gmail" href="https://mail.google.com/mail/?view=cm&to=zaratecolinparis@gmail.com" target="_blank">
+        ✉️ Gmail — zaratecolinparis@gmail.com
+      </a>
+      <a class="modal-btn icloud" href="mailto:zaratecolinparis@gmail.com">
+        ✉️ App predeterminada — zaratecolinparis@gmail.com
+      </a>
+    </div>
+
+    <div class="modal-section">
+      <h4>Teléfono</h4>
+      <a class="modal-btn call" href="tel:5580225559">
+        📞 Llamar — 5580225559
+      </a>
+      <a class="modal-btn whatsapp" href="https://wa.me/525580225559" target="_blank">
+        💬 WhatsApp — 5580225559
+      </a>
+    </div>
+
+    <div class="modal-section">
+      <h4>Red profesional</h4>
+      <a class="modal-btn linkedin" href="https://www.linkedin.com/in/pariszaratecolin/" target="_blank">
+        🔗 LinkedIn — Ver perfil completo
+      </a>
+    </div>
+
+    <button class="modal-close" onclick="closeModal()">Cerrar</button>
   </div>
 </div>
- 
+
 <script>
-  /* ── Skill tags ── */
-  document.querySelectorAll('.skill-tag').forEach(t =>
-    t.addEventListener('click', () => t.classList.toggle('active'))
-  );
- 
-  /* ── Datos ensamblados en runtime, no expuestos en DOM ── */
-  const _d = (() => {
-    const e  = 'paris.zarate' + String.fromCharCode(64) + 'icloud.com';
-    const ph = '52' + '5580' + '225559';
-    const li = 'https://www.linkedin.com/in/pariszaratecolin/';
-    return { e, ph, li };
-  })();
- 
-  /* ── Modal ── */
   function openModal() {
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.getElementById('contactModal').classList.add('active');
   }
   function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-    document.body.style.overflow = '';
+    document.getElementById('contactModal').classList.remove('active');
   }
   function handleOverlayClick(e) {
-    if (e.target === document.getElementById('modal')) closeModal();
+    if (e.target === document.getElementById('contactModal')) closeModal();
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
- 
-  /* ── Acciones de cada botón ── */
-  document.getElementById('btn-icloud').onclick  = () => { location.href = 'mailto:' + _d.e; closeModal(); };
-  document.getElementById('btn-gmail').onclick   = () => { window.open('https://mail.google.com/mail/?view=cm&to=' + _d.e, '_blank'); closeModal(); };
-  document.getElementById('btn-default').onclick = () => { location.href = 'mailto:' + _d.e; closeModal(); };
-  document.getElementById('btn-call').onclick    = () => { location.href = 'tel:+' + _d.ph; closeModal(); };
-  document.getElementById('btn-wa').onclick      = () => { window.open('https://wa.me/' + _d.ph, '_blank'); closeModal(); };
-  document.getElementById('btn-li').onclick      = () => { window.open(_d.li, '_blank'); closeModal(); };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
 </script>
- 
+
 </body>
 </html>
